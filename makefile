@@ -16,7 +16,7 @@ BASICLIBRARY = -lm -lstdc++ -pthread -lrt
 DIRLIBRARYSEARCH = -L./$(LIBDIR)
 
 all: create_directories \
-     generate_the_executable
+     execute_program
 	# [Trasterlabs] Making the default part
 
 NAME_PROGRAM = example_basic_state_pattern
@@ -29,7 +29,9 @@ $(NAME_PROGRAM): $(COMPILED_FILES)
 	# [Trasterlabs] joining the obj files into an executable
 	$(CPP) $^ -o $(BINDIR)$@ $(BASICINCLUDE) $(SOURCEINCLUDE)
 
-generate_the_executable: $(NAME_PROGRAM)
+execute_program: $(NAME_PROGRAM)
+	# executing $<
+	./$(BINDIR)/$(NAME_PROGRAM)
 
 create_directories:
 	if [ ! -d ./$(LIBDIR) ]; then mkdir -p ./$(LIBDIR); fi
