@@ -40,6 +40,6 @@ create_directories:
 
 $(OBJDIR)%.o: $(DIRSOURCE)%.cpp
 	# [Trasterlabs] Compile $<
-	$(CPP) $(CPPFLAGS11D) $(DIRINCLUDE) -c $< -o $@
+	$(CPP) $(CPPFLAGS11D) $(BASICINCLUDE) -c $< -o $@
 
 default: all
