@@ -1,4 +1,5 @@
 #include "context.h"
+#include <iostream>
 #include <typeinfo>
 
 Context::Context (State *state) : state_(nullptr)
