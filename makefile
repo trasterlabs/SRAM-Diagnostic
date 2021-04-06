@@ -1,7 +1,17 @@
 
-BINDIR = bin/
-LIBDIR = lib/
-OBJDIR = obj/
+CPP         = gcc
+CPPFLAGSD   = -Wall -g -O0
+CPPFLAGS11D = $(CPPFLAGSD) -std=gnu++11
+
+DIRINCLUDE = include/
+DIRSOURCE  = src/
+BINDIR     = bin/
+LIBDIR     = lib/
+OBJDIR     = obj/
+
+BASICINCLUDE = -I./$(DIRINCLUDE)
+SOURCEINCLUDE = -I./$(DIRSOURCE)
+
 
 all: create_directories
 
