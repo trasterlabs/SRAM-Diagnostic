@@ -1,6 +1,7 @@
 #include "ConcreteStateA.h"
 #include "ConcreteStateB.h"
 #include "context.h"
+#include <iostream>
 
 
 void ConcreteStateB::Handle1()
