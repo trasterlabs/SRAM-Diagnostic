@@ -10,5 +10,6 @@ before_install:
 cache:
 
 script:
+ - make
 
 after_success:
