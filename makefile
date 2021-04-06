@@ -15,7 +15,8 @@ SOURCEINCLUDE = -I./$(DIRSOURCE)
 BASICLIBRARY = -lm -lstdc++ -pthread -lrt
 DIRLIBRARYSEARCH = -L./$(LIBDIR)
 
-all: create_directories
+all: create_directories \
+     generate_the_executable
 	# [Trasterlabs] Making the default part
 
 NAME_PROGRAM = example_basic_state_pattern
@@ -28,13 +29,15 @@ $(NAME_PROGRAM): $(COMPILED_FILES)
 	# [Trasterlabs] joining the obj files into an executable
 	$(CPP) $^ -o $(BINDIR)$@ $(BASICINCLUDE) $(SOURCEINCLUDE)
 
-$(OBJDIR)%.o: $(DIRSOURCE)%.cpp
-	# [Trasterlabs] Compile $<
-	$(CPP) $(CPPFLAGS11D) $(DIRINCLUDE) -c $< -o $@
+generate_the_executable: $(NAME_PROGRAM)
 
 create_directories:
 	if [ ! -d ./$(LIBDIR) ]; then mkdir -p ./$(LIBDIR); fi
 	if [ ! -d ./$(BINDIR) ]; then mkdir -p ./$(BINDIR); fi
 	if [ ! -d ./$(OBJDIR) ]; then mkdir -p ./$(OBJDIR); fi
+
+$(OBJDIR)%.o: $(DIRSOURCE)%.cpp
+	# [Trasterlabs] Compile $<
+	$(CPP) $(CPPFLAGS11D) $(DIRINCLUDE) -c $< -o $@
 
 default: all
