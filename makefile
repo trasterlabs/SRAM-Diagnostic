@@ -22,6 +22,7 @@ NAME_PROGRAM = example_basic_state_pattern
 
 COMPILED_FILES  = $(OBJDIR)/state.o $(OBJDIR)/context.o
 COMPILED_FILES += $(OBJDIR)/ConcreteStateA.o $(OBJDIR)/ConcreteStateB.o
+COMPILED_FILES += $(OBJDIR)/main.o
 
 $(NAME_PROGRAM): $(COMPILED_FILES)
 	# [Trasterlabs] joining the obj files into an executable
