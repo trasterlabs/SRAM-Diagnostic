@@ -27,7 +27,7 @@ COMPILED_FILES += $(OBJDIR)main.o
 
 $(NAME_PROGRAM): $(COMPILED_FILES)
 	# [Trasterlabs] joining the obj files into an executable
-	$(CPP) $^ -o $(BINDIR)$@ $(BASICINCLUDE) $(SOURCEINCLUDE)
+	$(CPP) $^ -o $(BINDIR)$@ $(BASICINCLUDE) $(SOURCEINCLUDE) $(BASICLIBRARY) $(DIRLIBRARYSEARCH)
 
 execute_program: $(NAME_PROGRAM)
 	# executing $<
