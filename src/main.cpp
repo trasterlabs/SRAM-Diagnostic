@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Context.h"
+#include "context.h"
 #include "ConcreteStateA.h"
 
 /**
