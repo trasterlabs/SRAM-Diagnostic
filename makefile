@@ -1,12 +1,14 @@
 
-CPP          = gcc
-CPPFLAGSD    = -Wall -g -O0
-CPPFLAGS11D  = $(CPPFLAGSD) -std=gnu++11
-CPPFLAGS11DT = $(CPPFLAGS11D) -pedantic -ftest-coverage -fprofile-arcs --coverage
+CPP            = gcc
+CPPFLAGSD      = -Wall -g -O0
+CPPFLAGS11D    = $(CPPFLAGSD) -std=gnu++11
+CPPFLAGS11DCOV = $(CPPFLAGSD) -std=gnu++11 -pedantic -ftest-coverage -fprofile-arcs --coverage
+CPPFLAGS11DT   = $(CPPFLAGS11D) -pedantic
 
 
 DIRINCLUDE = include/
 DIRSOURCE  = src/
+DIRTEST    = test/
 BINDIR     = bin/
 LIBDIR     = lib/
 OBJDIR     = obj/
@@ -34,8 +36,9 @@ $(NAME_PROGRAM): $(COMPILED_FILES)
 	# [Trasterlabs] joining the obj files into an executable
 	$(CPP) $^ -o $(BINDIR)$@ $(BASICINCLUDE) $(SOURCEINCLUDE) $(BASICLIBRARY) $(DIRLIBRARYSEARCH)
 
-COMPILED_FILES_TEST  = $(OBJDIR)state.o11dt $(OBJDIR)context.o11dt
-COMPILED_FILES_TEST += $(OBJDIR)ConcreteStateA.o11dt $(OBJDIR)ConcreteStateB.o11dt
+COMPILED_FILES_TEST  = $(OBJDIR)state.o $(OBJDIR)context.o
+COMPILED_FILES_TEST += $(OBJDIR)ConcreteStateA.o $(OBJDIR)ConcreteStateB.o
+COMPILED_FILES_TEST += $(OBJDIR)ConcreteStateA.o11dt
 
 $(NAME_PROGRAM_TEST): $(COMPILED_FILES_TEST)
 	# [Trasterlabs] joining the obj files into an executable
@@ -56,9 +59,9 @@ create_directories:
 
 $(OBJDIR)%.o: $(DIRSOURCE)%.cpp
 	# [Trasterlabs] Compile $<
-	$(CPP) $(CPPFLAGS11D) $(BASICINCLUDE) -c $< -o $@
+	$(CPP) $(CPPFLAGS11DCOV) $(BASICINCLUDE) -c $< -o $@
 
-$(OBJDIR)%.o11dt: $(DIRSOURCE)%.cpp
+$(OBJDIR)%.o11dt: $(DIRTEST)%.cpp
 	# [Trasterlabs] Compile $< with testing enabled
 	$(CPP) $(CPPFLAGS11DT) $(TESTINCLUDE) -c $< -o $@
 
