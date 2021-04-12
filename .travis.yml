@@ -18,7 +18,7 @@ cache:
 script:
  - chmod +x ./lib/local_googletest_scripts/get-nprocessors.sh
  - chmod +x ./lib/local_googletest_scripts/travis.sh
- - sh ./lib/local_gtest_scripts/travis.sh
+ - sh ./lib/local_googletest_scripts/travis.sh
  - build-wrapper-linux-x86-64 --out-dir bw-output make
  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
