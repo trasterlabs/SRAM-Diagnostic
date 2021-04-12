@@ -17,7 +17,7 @@ SOURCEINCLUDE = -I./$(DIRSOURCE)
 BASICLIBRARY = -lm -lstdc++ -pthread -lrt
 DIRLIBRARYSEARCH = -L./$(LIBDIR)
 
-TESTLIBRARY = $(BASICLIBRARY) -lgtest -lgcov -lgtest_main
+TESTLIBRARY = $(BASICLIBRARY) -lgtest_main -lgtest -lgcov 
 TESTINCLUDE = $(BASICINCLUDE) -I./include/gtest -I./include/gmock
 
 all: create_directories \
