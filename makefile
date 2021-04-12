@@ -58,7 +58,7 @@ $(OBJDIR)%.o: $(DIRSOURCE)%.cpp
 	# [Trasterlabs] Compile $<
 	$(CPP) $(CPPFLAGS11D) $(BASICINCLUDE) -c $< -o $@
 
-$(OBJDIR)%.o11t: $(DIRSOURCE)%.cpp
+$(OBJDIR)%.o11dt: $(DIRSOURCE)%.cpp
 	# [Trasterlabs] Compile $< with testing enabled
 	$(CPP) $(CPPFLAGS11DT) $(TESTINCLUDE) -c $< -o $@
 
