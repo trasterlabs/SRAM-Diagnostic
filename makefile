@@ -1,7 +1,9 @@
 
-CPP         = gcc
-CPPFLAGSD   = -Wall -g -O0
-CPPFLAGS11D = $(CPPFLAGSD) -std=gnu++11
+CPP          = gcc
+CPPFLAGSD    = -Wall -g -O0
+CPPFLAGS11D  = $(CPPFLAGSD) -std=gnu++11
+CPPFLAGS11DT = $(CPPFLAGS11D) -pedantic -ftest-coverage -fprofile-arcs --coverage
+
 
 DIRINCLUDE = include/
 DIRSOURCE  = src/
@@ -14,6 +16,9 @@ SOURCEINCLUDE = -I./$(DIRSOURCE)
 
 BASICLIBRARY = -lm -lstdc++ -pthread -lrt
 DIRLIBRARYSEARCH = -L./$(LIBDIR)
+
+TESTLIBRARY = $(BASICLIBRARY) -lgtest -lgcov
+TESTINCLUDE = $(BASICINCLUDE) -I./include/gtest -I./include/gmock
 
 all: create_directories \
      execute_program
