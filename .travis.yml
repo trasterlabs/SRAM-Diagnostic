@@ -4,12 +4,15 @@ language: cpp
 os: linux
 
 addons:
+  sonarcloud:
+    organization: "trasterlabs"
 
 before_install:
 
 cache:
 
 script:
- - make
+ - build-wrapper-linux-x86-64 --out-dir bw-output make
+ - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
 after_success:
