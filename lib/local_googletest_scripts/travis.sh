@@ -9,7 +9,7 @@ else
  BUILD_TYPE="-O2"
  CXX_FLAGS=“-D_GNU_SOURCE -D_POSIX_C_SOURCE=200809 -std=gnu++11 -fms-extensions -fdata-sections -ffunction-sections”
 fi
-. lib/local_gtest_scripts/get-nprocessors.sh
+. lib/local_googletest_scripts/get-nprocessors.sh
 # Tell make to use the processors. No preceding '-' required.
 MAKEFLAGS="j${NPROCESSORS}"
 export MAKEFLAGS
