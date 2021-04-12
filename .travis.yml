@@ -4,10 +4,14 @@ language: cpp
 os: linux
 
 addons:
+  apt:
+    - lcov
+    - gcovr
   sonarcloud:
     organization: "trasterlabs"
 
 before_install:
+ - pip install gcovr
 
 cache:
 
