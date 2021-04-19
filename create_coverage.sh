@@ -8,14 +8,14 @@ if [ ! -d ./gcov/aux ]; then mkdir -p ./gcov/aux; fi
 cd ./gcov/aux
 
 # searching files with gcno extension
-files_with_gcno=$(find ../../ -type f "*.gcno")
+files_with_gcno=$(find ../../ -type f -name "*.gcno")
 for each_file in $files_with_gcno
 do
      echo "$each_file"
 done
 
 # searching files with gcda extension
-files_with_gcda=$(find ../../ -type f "*.gcda")
+files_with_gcda=$(find ../../ -type f -name "*.gcda")
 for each_file in $files_with_gcda
 do
      echo "$each_file"
