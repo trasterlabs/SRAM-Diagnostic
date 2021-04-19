@@ -21,6 +21,5 @@ script:
  - sh ./lib/local_googletest_scripts/travis.sh
  - build-wrapper-linux-x86-64 --out-dir bw-output make
  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
- - sh ./create_coverage.sh
 
 after_success:
