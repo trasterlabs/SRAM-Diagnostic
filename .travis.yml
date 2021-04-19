@@ -19,7 +19,8 @@ script:
  - chmod +x ./lib/local_googletest_scripts/travis.sh
  - sh ./lib/local_googletest_scripts/travis.sh
  - build-wrapper-linux-x86-64 --out-dir bw-output make
- - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
  - gcov -a -b -c -f -m ./obj/*.gcno -o ./obj/ -s /src/
+ - gcovr -r ./ -k -g --xml -o ./cov/cov.xml
+ - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
 after_success:
