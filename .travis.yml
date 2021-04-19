@@ -20,7 +20,7 @@ script:
  - sh ./lib/local_googletest_scripts/travis.sh
  - build-wrapper-linux-x86-64 --out-dir bw-output make
  - gcov -a -b -c -f -m ./obj/*.gcno -o ./obj/ -s /src/
- - nkdir ./cov/
+ - mkdir ./cov/
  - gcovr -k -g -r ./ --xml -o ./cov/cov.xml
  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
