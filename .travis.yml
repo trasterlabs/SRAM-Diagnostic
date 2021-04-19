@@ -22,5 +22,8 @@ script:
  - build-wrapper-linux-x86-64 --out-dir bw-output make
  - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
  - ls -la
+ - cd obj
+ - ls -la
+ - cd ..
 
 after_success:
