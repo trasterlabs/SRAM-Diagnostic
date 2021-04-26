@@ -11,9 +11,22 @@
   ******************************************************************************
   */
 
+/**
+ * Guía de uso:
+ * Si yo necesito crear un memoryPool de <INTS> y con 30 ELEMENTOS
+ * MemoryPool <int, 30> Gregory;
+ * Gregory.GetInstance().create(5);
+ * MemoryPool <int, 30> & Martha = MemoryPool <int, 30>::GetInstance();
+ * Martha.create(5);
+ */
 
+
+template <typename theType, unsigned int numberOfElements>
 class MemoryPool
 {
+private:
+  theType the_pool      [numberOfElements]; /*!< Where the <new> and <delete> will be */
+  uint8_t elements_used [numberOfElements]; /*!< The elements used */
 protected:
   /**
    * El constructor de MemoryPool debería ser siempre privado para
@@ -43,3 +56,4 @@ public:
    * LA LÓGICA DE NEGOCIO
    */
 };
+
