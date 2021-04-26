@@ -53,8 +53,16 @@ public:
   static MemoryPool & GetInstance();
   
   /**
-   * LA LÓGICA DE NEGOCIO
+   * Finally, any singleton should define some business logic, which can be
+   * executed on its instance.
    */
+  /**
+   * @brief static allocation for sustitution of the new operator
+   * @param i the number of elements to be returned
+   * @return the pointer to the static array location
+   */
+  theType * new_ (unsigned int size = 1);
+  void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);L
 };
 
 template <typename T, unsigned int N>
