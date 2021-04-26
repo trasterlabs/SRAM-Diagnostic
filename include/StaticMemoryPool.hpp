@@ -57,3 +57,11 @@ public:
    */
 };
 
+template <typename T, unsigned int N>
+MemoryPool < T, N > & MemoryPool < T, N >::GetInstance()
+{
+  static MemoryPool < T, N > instance;
+  return instance;
+}
+
+
