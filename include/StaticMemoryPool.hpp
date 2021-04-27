@@ -62,11 +62,11 @@ public:
     unsigned int total_free_elements = 0;
     for ( unsigned int i = 0; i < numberOfElements; i++ )
     {
-      if ( ( this->element_used[i] != 0 ) && ( total_free_elements > max_consecutive ) )
+      if ( ( this->elements_used[i] != 0 ) && ( total_free_elements > max_consecutive ) )
       {
         max_consecutive = total_free_elements;
       }
-      total_free_elements = ( this->element_used[i] != 0 )? 0 : total_free_elements + 1;
+      total_free_elements = ( this->elements_used[i] != 0 )? 0 : total_free_elements + 1;
     }
     if ( total_free_elements > max_consecutive )
     {
