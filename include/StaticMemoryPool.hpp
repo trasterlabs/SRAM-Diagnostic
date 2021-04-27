@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    StaticMemoryPool.hpp
   * @author  Trasterlabs
-  * @brief   Memory Pool using static memory to surpass the new funcitonalty.
+  * @brief   Memory Pool using static memory to override the new funcitonalty.
   ******************************************************************************
   * @attention
   *
@@ -10,15 +10,6 @@
   *
   ******************************************************************************
   */
-
-/**
- * Guía de uso:
- * Si yo necesito crear un memoryPool de <INTS> y con 30 ELEMENTOS
- * MemoryPool <int, 30> Gregory;
- * Gregory.GetInstance().create(5);
- * MemoryPool <int, 30> & Martha = MemoryPool <int, 30>::GetInstance();
- * Martha.create(5);
- */
 
 
 template <typename theType, unsigned int numberOfElements>
@@ -44,11 +35,10 @@ public:
   void operator = (const MemoryPool &) = delete;
   
   /**
-   * The big mother of lamb: el método estático que controla el acceso a la "instancia" del singleton.
-   * La instancia es el objeto a representar. La primera vez que se ejecute,
-   * se "crea" un objeto que será el que se devuelva SIEMPRE.
-   * En las consecutivas llamadas, se devolverá el mismo objeto que se creó la primera vez,
-   * de modo que siempre se devueva de forma estática.
+   * This is the static method that controls the access to the singleton
+   * instance. On the first run, it creates a singleton object and places it
+   * into the static field. On subsequent runs, it returns the client existing
+   * object stored in the static field.
    */
   static MemoryPool & GetInstance();
   
@@ -74,6 +64,9 @@ public:
   void showTheElementsUsed ();
 };
 
+/**
+ * Static methods should be defined outside the class.
+ */
 template <typename T, unsigned int N>
 MemoryPool < T, N > & MemoryPool < T, N >::GetInstance()
 {
