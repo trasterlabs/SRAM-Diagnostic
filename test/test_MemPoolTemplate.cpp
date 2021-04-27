@@ -23,8 +23,8 @@ class MemPoolTestingFixture : public testing::Test
 protected:
   void SetUp () override
   {
-    pool_elements = intPool::ReceiveThePool();
-    pool_elements_used = intPool::ReceiveElementsUsed();
+    pool_elements = the_pool.ReceiveThePool();
+    pool_elements_used = the_pool.ReceiveElementsUsed();
     for ( int i = 0; i < NELMS; i++ )
     {
       pool_elements[i] = 0;
