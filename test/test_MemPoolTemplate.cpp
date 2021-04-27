@@ -54,7 +54,7 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos01)
   EXPECT_EQ( max_consecutive, objective );
 }
 
-TEST_F(MemPoolTestingFixture, ConteoDeMaximos01)
+TEST_F(MemPoolTestingFixture, ConteoDeMaximos02)
 {
   //Arrange
   pool_elements_used[3] = 1;
