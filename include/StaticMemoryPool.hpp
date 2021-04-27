@@ -80,23 +80,16 @@ public:
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
   void showTheElementsUsed ();
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
-  static theType * ReceiveThePool ();
-  static uint8_t * ReceiveElementsUsed ();
+  theType * ReceiveThePool ()
+  {
+    return &(this->the_pool[0]);
+  }
+  uint8_t * ReceiveElementsUsed ()
+  {
+    return &(this->elements_used[0]);
+  }
   #endif
 };
-
-#ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
-template <typename T, unsigned int N>
-T * MemoryPool < T, N >::ReceiveThePool ()
-{
-  return &(this->the_pool[0]);
-}
-template <typename T, unsigned int N>
-uint8_t * MemoryPool < T, N >::ReceiveElementsUsed ()
-{
-  return &(this->elements_used[0]);
-}
-#endif
 
 /**
  * Static methods should be defined outside the class.
