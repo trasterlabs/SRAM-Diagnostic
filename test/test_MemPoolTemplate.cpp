@@ -18,7 +18,7 @@
 
 typedef MemoryPool<int, NELMS> intPool;
 
-intPool the_pool;
+intPool & the_pool = intPool::GetInstance();
 
 class MemPoolTestingFixture : public testing::Test
 {
@@ -36,6 +36,7 @@ protected:
       pool_elements_used[i] = 0;
     }
   }
+  
   
   int * pool_elements;
   uint8_t * pool_elements_used;
