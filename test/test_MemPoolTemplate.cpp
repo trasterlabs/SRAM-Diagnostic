@@ -46,5 +46,7 @@ TEST_F(QueueTestSmpl3, ConteoDeMaximos01)
   pool_elements_used[3] = 1;
   pool_elements_used[7] = 1;
   //Act
-
+  unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
+  //Assert
+  EXPECT_EQ( max_consecutive, 3 );
 }
