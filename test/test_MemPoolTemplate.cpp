@@ -18,6 +18,8 @@
 
 typedef MemoryPool<int, NELMS> intPool;
 
+intPool the_pool;
+
 class MemPoolTestingFixture : public testing::Test
 {
 protected:
@@ -35,7 +37,6 @@ protected:
     }
   }
   
-  intPool the_pool;
   int * pool_elements;
   uint8_t * pool_elements_used;
 };
@@ -47,6 +48,7 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos01)
   pool_elements_used[7] = 1;
   //Act
   unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
+  unsigned int objective = 3;
   //Assert
-  EXPECT_EQ( max_consecutive, 3 );
+  EXPECT_EQ( max_consecutive, objective );
 }
