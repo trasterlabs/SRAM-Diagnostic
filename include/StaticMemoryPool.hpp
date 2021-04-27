@@ -56,7 +56,24 @@ public:
   void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
   unsigned int find_the_position_in_the_pool (theType * the_array);
   void markTheElementsToBeAllocated (unsigned int position, unsigned int places);
-  unsigned int countMaxFreeConsecutiveElements ();
+  unsigned int countMaxFreeConsecutiveElements ()
+  {
+    unsigned int max_consecutive = 0;
+    unsigned int total_free_elements = 0;
+    for ( unsigned int i = 0; i < numberOfElements; i++ )
+    {
+      if ( ( this->element_used[i] != 0 ) && ( total_free_elements > max_consecutive ) )
+      {
+        max_consecutive = total_free_elements;
+      }
+      total_free_elements = ( this->element_used[i] != 0 )? 0 : total_free_elements + 1;
+    }
+    if ( total_free_elements > max_consecutive )
+    {
+        max_consecutive = total_free_elements;
+    }
+    return max_consecutive;
+  }
   unsigned int nextAvailablePositionIncludingFrom (unsigned int position);
   unsigned int nextOccupiedPositionIncludingFrom (unsigned int position);
   bool isPositionInsideMemoryPool (unsigned int position);
