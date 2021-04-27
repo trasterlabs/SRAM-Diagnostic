@@ -38,7 +38,7 @@ $(NAME_PROGRAM): $(COMPILED_FILES)
 
 COMPILED_FILES_TEST  = $(OBJDIR)state.o $(OBJDIR)context.o
 COMPILED_FILES_TEST += $(OBJDIR)ConcreteStateA.o $(OBJDIR)ConcreteStateB.o
-COMPILED_FILES_TEST += $(OBJDIR)test_state.o11dt
+COMPILED_FILES_TEST += $(OBJDIR)test_MemPoolTemplate.o11dt
 
 $(NAME_PROGRAM_TEST): $(COMPILED_FILES_TEST)
 	# [Trasterlabs] joining the obj files into an executable
