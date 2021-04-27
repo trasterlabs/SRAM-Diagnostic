@@ -87,12 +87,12 @@ public:
 
 #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
 template <typename T, unsigned int N>
-static T * MemoryPool < T, N >::ReceiveThePool ()
+T * MemoryPool < T, N >::ReceiveThePool ()
 {
   return &(this->the_pool[0]);
 }
 template <typename T, unsigned int N>
-static uint8_t * MemoryPool < T, N >::ReceiveElementsUsed ()
+uint8_t * MemoryPool < T, N >::ReceiveElementsUsed ()
 {
   return &(this->elements_used[0]);
 }
