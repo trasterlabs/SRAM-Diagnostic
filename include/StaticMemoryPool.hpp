@@ -62,7 +62,16 @@ public:
    * @return the pointer to the static array location
    */
   theType * new_ (unsigned int size = 1);
-  void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);L
+  void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
+  void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
+  unsigned int find_the_position_in_the_pool (theType * the_array);
+  void markTheElementsToBeAllocated (unsigned int position, unsigned int places);
+  unsigned int countMaxFreeConsecutiveElements ();
+  unsigned int nextAvailablePositionIncludingFrom (unsigned int position);
+  unsigned int nextOccupiedPositionIncludingFrom (unsigned int position);
+  bool isPositionInsideMemoryPool (unsigned int position);
+  unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
+  void showTheElementsUsed ();
 };
 
 template <typename T, unsigned int N>
