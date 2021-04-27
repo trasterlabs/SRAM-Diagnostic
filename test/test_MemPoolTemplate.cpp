@@ -40,7 +40,7 @@ protected:
   uint8_t * pool_elements_used;
 };
 
-TEST_F(QueueTestSmpl3, ConteoDeMaximos01)
+TEST_F(MemPoolTestingFixture, ConteoDeMaximos01)
 {
   //Arrange
   pool_elements_used[3] = 1;
