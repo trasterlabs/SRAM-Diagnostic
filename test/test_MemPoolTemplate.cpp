@@ -124,7 +124,7 @@ TEST_F(MemPoolTestingFixture, SiguienteDisponible02)
     pool_elements_used[i] = 1;
   }
   //Act
-  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(0);
+  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom( 0 );
   unsigned int objective = 6;
   //Assert
   EXPECT_EQ( next_available, objective );
@@ -138,7 +138,7 @@ TEST_F(MemPoolTestingFixture, SiguienteDisponible_TodosOcupados)
     pool_elements_used[i] = 1;
   }
   //Act
-  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(0);
+  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom( 0 );
   unsigned int objective = NELMS + 1;
   //Assert
   EXPECT_EQ( next_available, objective );
@@ -150,9 +150,48 @@ TEST_F(MemPoolTestingFixture, SiguienteDisponible_TodosLibres_recorrido)
   for ( int i = 0; i < NELMS; i++ )
   {
     //Act
-    unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(i);
+    unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom( i );
     unsigned int objective = i;
     //Assert
     EXPECT_EQ( next_available, objective );
   }
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteOcupado01)
+{
+  //Arrange
+  pool_elements_used[2] = 1;
+  pool_elements_used[3] = 1;
+  pool_elements_used[4] = 1;
+  //Act
+  unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( 2 );
+  unsigned int objective = 2;
+  //Assert
+  EXPECT_EQ( next_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteOcupado02)
+{
+  //Arrange
+  pool_elements_used[2] = 1;
+  pool_elements_used[3] = 1;
+  pool_elements_used[4] = 1;
+  //Act
+  unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( 4 );
+  unsigned int objective = 4;
+  //Assert
+  EXPECT_EQ( next_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteOcupado03)
+{
+  //Arrange
+  pool_elements_used[2] = 1;
+  pool_elements_used[3] = 1;
+  pool_elements_used[4] = 1;
+  //Act
+  unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( 5 );
+  unsigned int objective = NELMS + 1;
+  //Assert
+  EXPECT_EQ( next_available, objective );
 }
