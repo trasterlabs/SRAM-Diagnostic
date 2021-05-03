@@ -72,7 +72,6 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos03)
   pool_elements_used[3] = 1;
   pool_elements_used[4] = 1;
   pool_elements_used[5] = 1;
-  pool_elements_used[8] = 1;
   //Act
   unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
   unsigned int objective = 4;
