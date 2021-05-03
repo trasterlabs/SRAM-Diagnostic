@@ -83,9 +83,19 @@ public:
         return i;
       }
     }
-    
+    return numberOfElements + 1;
   }
-  unsigned int nextOccupiedPositionIncludingFrom (unsigned int position);
+  unsigned int nextOccupiedPositionIncludingFrom (unsigned int position)
+  {
+    for ( int i = position; i < numberOfElements; i++ )
+    {
+      if ( this->elements_used[i] != 0 )
+      {
+        return i;
+      }
+    }
+    return numberOfElements + 1;
+  }
   bool isPositionInsideMemoryPool (unsigned int position);
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
   void showTheElementsUsed ();
