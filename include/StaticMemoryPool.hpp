@@ -74,7 +74,17 @@ public:
     }
     return max_consecutive;
   }
-  unsigned int nextAvailablePositionIncludingFrom (unsigned int position);
+  unsigned int nextAvailablePositionIncludingFrom (unsigned int position)
+  {
+    for ( int i = 0; i < numberOfElements; i++ )
+    {
+      if ( this->elements_used[i] == 0 )
+      {
+        return i;
+      }
+    }
+    
+  }
   unsigned int nextOccupiedPositionIncludingFrom (unsigned int position);
   bool isPositionInsideMemoryPool (unsigned int position);
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
