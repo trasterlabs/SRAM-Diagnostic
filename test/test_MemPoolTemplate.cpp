@@ -111,8 +111,49 @@ TEST_F(MemPoolTestingFixture, SiguienteDisponible01)
   pool_elements_used[3] = 1;
   pool_elements_used[4] = 1;
   //Act
-  unsigned int max_consecutive = the_pool.nextAvailablePositionIncludingFrom(2);
+  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(2);
   unsigned int objective = 5;
   //Assert
-  EXPECT_EQ( max_consecutive, objective );
+  EXPECT_EQ( next_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteDisponible01)
+{
+  //Arrange
+  for ( int i = 0; i < 6; i++ )
+  {
+    pool_elements_used[i] = 1;
+  }
+  //Act
+  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(0);
+  unsigned int objective = 6;
+  //Assert
+  EXPECT_EQ( next_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteDisponible_TodosOcupados)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    pool_elements_used[i] = 1;
+  }
+  //Act
+  unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(0);
+  unsigned int objective = NELMS + 1;
+  //Assert
+  EXPECT_EQ( next_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteDisponible_TodosLibres_recorrido)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    //Act
+    unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom(i);
+    unsigned int objective = i;
+    //Assert
+    EXPECT_EQ( next_available, objective );
+  }
 }
