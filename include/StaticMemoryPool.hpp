@@ -76,7 +76,7 @@ public:
   }
   unsigned int nextAvailablePositionIncludingFrom (unsigned int position)
   {
-    for ( int i = 0; i < numberOfElements; i++ )
+    for ( int i = position; i < numberOfElements; i++ )
     {
       if ( this->elements_used[i] == 0 )
       {
