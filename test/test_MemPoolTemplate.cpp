@@ -65,3 +65,13 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos02)
   //Assert
   EXPECT_EQ( max_consecutive, objective );
 }
+
+TEST_F(MemPoolTestingFixture, ConteoDeMaximos03)
+{
+  //Arrange
+  //Act
+  unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
+  unsigned int objective = 10;
+  //Assert
+  EXPECT_EQ( max_consecutive, objective );
+}
