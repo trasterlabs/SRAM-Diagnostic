@@ -69,9 +69,37 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos02)
 TEST_F(MemPoolTestingFixture, ConteoDeMaximos03)
 {
   //Arrange
+  pool_elements_used[3] = 1;
+  pool_elements_used[4] = 1;
+  pool_elements_used[5] = 1;
+  pool_elements_used[8] = 1;
+  //Act
+  unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
+  unsigned int objective = 4;
+  //Assert
+  EXPECT_EQ( max_consecutive, objective );
+}
+
+TEST_F(MemPoolTestingFixture, ConteoDeMaximos_TodosLibres)
+{
+  //Arrange
   //Act
   unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
   unsigned int objective = 10;
+  //Assert
+  EXPECT_EQ( max_consecutive, objective );
+}
+
+TEST_F(MemPoolTestingFixture, ConteoDeMaximos_TodosOcupados)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    pool_elements_used[i] = 1;
+  }
+  //Act
+  unsigned int max_consecutive = the_pool.countMaxFreeConsecutiveElements();
+  unsigned int objective = 0;
   //Assert
   EXPECT_EQ( max_consecutive, objective );
 }
