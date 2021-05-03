@@ -195,3 +195,33 @@ TEST_F(MemPoolTestingFixture, SiguienteOcupado03)
   //Assert
   EXPECT_EQ( next_available, objective );
 }
+
+TEST_F(MemPoolTestingFixture, SiguienteOcupado_TodosOcupados_recorrido)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    pool_elements_used[i] = 1;
+  }
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    //Act
+    unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom( i );
+    unsigned int objective = i;
+    //Assert
+    EXPECT_EQ( next_available, objective );
+  }
+}
+
+TEST_F(MemPoolTestingFixture, SiguienteOcupado_TodosLibres_Recorrido)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    //Act
+    unsigned int next_available = the_pool.nextAvailablePositionIncludingFrom( i );
+    unsigned int objective = NELMS + 1;
+    //Assert
+    EXPECT_EQ( next_available, objective );
+  }
+}
