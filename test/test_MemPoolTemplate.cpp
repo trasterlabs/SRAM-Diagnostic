@@ -103,3 +103,16 @@ TEST_F(MemPoolTestingFixture, ConteoDeMaximos_TodosOcupados)
   //Assert
   EXPECT_EQ( max_consecutive, objective );
 }
+
+TEST_F(MemPoolTestingFixture, SiguienteDisponible01)
+{
+  //Arrange
+  pool_elements_used[2] = 1;
+  pool_elements_used[3] = 1;
+  pool_elements_used[4] = 1;
+  //Act
+  unsigned int max_consecutive = the_pool.nextAvailablePositionIncludingFrom(2);
+  unsigned int objective = 5;
+  //Assert
+  EXPECT_EQ( max_consecutive, objective );
+}
