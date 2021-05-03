@@ -117,7 +117,7 @@ TEST_F(MemPoolTestingFixture, SiguienteDisponible01)
   EXPECT_EQ( next_available, objective );
 }
 
-TEST_F(MemPoolTestingFixture, SiguienteDisponible01)
+TEST_F(MemPoolTestingFixture, SiguienteDisponible02)
 {
   //Arrange
   for ( int i = 0; i < 6; i++ )
