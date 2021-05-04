@@ -53,7 +53,13 @@ public:
    */
   theType * new_ (unsigned int size = 1)
   {
-    ;
+    if ( this->countMaxFreeConsecutiveElements() >= size )
+    {
+    }
+    else
+    {
+      return nullptr;
+    }
   }
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
   void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
