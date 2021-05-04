@@ -231,7 +231,7 @@ TEST_F(MemPoolTestingFixture, MarcarDisponibles01)
   //Arrange
   //Act
   the_pool.markTheElementsToBeAllocated( 2, 4 );
-  unsigned int objective[] = { 0, 0, 1, 1, 1, 1, 0, 0, 0, 0 };
+  unsigned int objective[] = { 0, 0, 4, 4, 4, 4, 0, 0, 0, 0 };
   //Assert
   for ( int i = 0; i < NELMS; i++ )
   {
