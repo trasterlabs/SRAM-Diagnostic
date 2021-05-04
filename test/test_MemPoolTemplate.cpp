@@ -252,3 +252,29 @@ TEST_F(MemPoolTestingFixture, MarcarDisponibles02)
     EXPECT_EQ( pool_elements_used[i], objective[i] );
   }
 }
+
+TEST_F(MemPoolTestingFixture, MarcarDisponibles_CasoMarginal01)
+{
+  //Arrange
+  //Act
+  the_pool.markTheElementsToBeAllocated( 0, 15 );
+  unsigned int objective[] = { 15, 15, 15, 15, 15, 15, 15, 15, 15, 15 };
+  //Assert
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective[i] );
+  }
+}
+
+TEST_F(MemPoolTestingFixture, MarcarDisponibles_CasoMarginal02)
+{
+  //Arrange
+  //Act
+  the_pool.markTheElementsToBeAllocated( 10, 15 );
+  unsigned int objective[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  //Assert
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective[i] );
+  }
+}
