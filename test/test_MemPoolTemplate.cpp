@@ -164,7 +164,7 @@ TEST_F(MemPoolTestingFixture, SiguienteOcupado01)
   pool_elements_used[3] = 1;
   pool_elements_used[4] = 1;
   //Act
-  unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( 2 );
+  unsigned int next_occupied = the_pool.nextOccupiedPositionIncludingFrom( 2 );
   unsigned int objective = 2;
   //Assert
   EXPECT_EQ( next_available, objective );
@@ -190,7 +190,7 @@ TEST_F(MemPoolTestingFixture, SiguienteOcupado03)
   pool_elements_used[3] = 1;
   pool_elements_used[4] = 1;
   //Act
-  unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( 5 );
+  unsigned int next_occupied = the_pool.nextOccupiedPositionIncludingFrom( 5 );
   unsigned int objective = NELMS + 1;
   //Assert
   EXPECT_EQ( next_available, objective );
@@ -219,7 +219,7 @@ TEST_F(MemPoolTestingFixture, SiguienteOcupado_TodosLibres_Recorrido)
   for ( int i = 0; i < NELMS; i++ )
   {
     //Act
-    unsigned int next_available = the_pool.nextOccupiedPositionIncludingFrom( i );
+    unsigned int next_occupied = the_pool.nextOccupiedPositionIncludingFrom( i );
     unsigned int objective = NELMS + 1;
     //Assert
     EXPECT_EQ( next_available, objective );
