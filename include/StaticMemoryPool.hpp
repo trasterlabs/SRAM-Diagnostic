@@ -55,7 +55,10 @@ public:
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
   void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
   unsigned int find_the_position_in_the_pool (theType * the_array);
-  void markTheElementsToBeAllocated (unsigned int position, unsigned int places);
+  void markTheElementsToBeAllocated (unsigned int position, unsigned int places)
+  {
+   ;
+  }
   unsigned int countMaxFreeConsecutiveElements ()
   {
     unsigned int max_consecutive = 0;
