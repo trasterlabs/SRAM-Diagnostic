@@ -104,7 +104,7 @@ public:
   }
   bool isPositionInsideMemoryPool (unsigned int position)
   {
-    ;
+    return ( position < numberOfElements );
   }
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
   void showTheElementsUsed ();
