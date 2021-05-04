@@ -370,7 +370,7 @@ TEST_F(MemPoolTestingFixture, New_Test02)
     EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
   }
 }
-TEST_F(MemPoolTestingFixture, New_Test02)
+TEST_F(MemPoolTestingFixture, New_Test03 )
 {
   //Arrange
   //Act
