@@ -127,6 +127,7 @@ public:
       occupied = this->nextOccupiedPositionIncludingFrom( available + 1 );
       size = occupied - available;
     }
+    output = ( size < size_of_the_desired_buffer ) ? numberOfElements + 1: available;
     return output;
   }
   void showTheElementsUsed ();
