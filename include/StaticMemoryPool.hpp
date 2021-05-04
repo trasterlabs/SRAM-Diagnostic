@@ -55,15 +55,18 @@ public:
   {
     if ( this->countMaxFreeConsecutiveElements() >= size )
     {
+      
     }
     else
     {
       return nullptr;
     }
   }
+
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
   void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
   unsigned int find_the_position_in_the_pool (theType * the_array);
+
   void markTheElementsToBeAllocated (unsigned int position, unsigned int places)
   {
     for ( unsigned int i = position; i < position + places; i++ )
@@ -71,6 +74,7 @@ public:
       this->elements_used[i] = places;
     }
   }
+
   unsigned int countMaxFreeConsecutiveElements ()
   {
     unsigned int max_consecutive = 0;
@@ -83,12 +87,14 @@ public:
       }
       total_free_elements = ( this->elements_used[i] != 0 )? 0 : total_free_elements + 1;
     }
+    
     if ( total_free_elements > max_consecutive )
     {
         max_consecutive = total_free_elements;
     }
     return max_consecutive;
   }
+
   unsigned int nextAvailablePositionIncludingFrom (unsigned int position)
   {
     for ( int i = position; i < numberOfElements; i++ )
@@ -100,6 +106,7 @@ public:
     }
     return numberOfElements + 1;
   }
+
   unsigned int nextOccupiedPositionIncludingFrom (unsigned int position)
   {
     for ( unsigned int i = position; i < numberOfElements; i++ )
@@ -111,10 +118,12 @@ public:
     }
     return numberOfElements + 1;
   }
+
   bool isPositionInsideMemoryPool (unsigned int position)
   {
     return ( position < numberOfElements );
   }
+
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer)
   {
     unsigned int output = numberOfElements;
@@ -130,6 +139,7 @@ public:
     output = ( size < size_of_the_desired_buffer ) ? numberOfElements + 1: available;
     return output;
   }
+
   void showTheElementsUsed ();
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
   theType * ReceiveThePool ()
