@@ -51,7 +51,10 @@ public:
    * @param i the number of elements to be returned
    * @return the pointer to the static array location
    */
-  theType * new_ (unsigned int size = 1);
+  theType * new_ (unsigned int size = 1)
+  {
+    ;
+  }
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
   void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
   unsigned int find_the_position_in_the_pool (theType * the_array);
