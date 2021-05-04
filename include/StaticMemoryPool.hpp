@@ -102,7 +102,10 @@ public:
     }
     return numberOfElements + 1;
   }
-  bool isPositionInsideMemoryPool (unsigned int position);
+  bool isPositionInsideMemoryPool (unsigned int position)
+  {
+    ;
+  }
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
   void showTheElementsUsed ();
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
