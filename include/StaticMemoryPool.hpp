@@ -134,11 +134,11 @@ public:
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
   theType * ReceiveThePool ()
   {
-    return &(this->the_pool[0]);
+    return &( this->the_pool[0] );
   }
   uint8_t * ReceiveElementsUsed ()
   {
-    return &(this->elements_used[0]);
+    return &( this->elements_used[0] );
   }
   #endif
 };
