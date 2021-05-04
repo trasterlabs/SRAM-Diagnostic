@@ -55,7 +55,9 @@ public:
   {
     if ( this->countMaxFreeConsecutiveElements() >= size )
     {
-      
+      unsigned int the_position_in_the_buffer = this->firstAvailableBuffer( size );
+      this->markTheElementsToBeAllocated( the_position_in_the_buffer, size );
+      return &( this->the_pool[the_position_in_the_buffer] );
     }
     else
     {
