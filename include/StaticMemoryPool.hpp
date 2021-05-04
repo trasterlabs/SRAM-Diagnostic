@@ -57,7 +57,10 @@ public:
   unsigned int find_the_position_in_the_pool (theType * the_array);
   void markTheElementsToBeAllocated (unsigned int position, unsigned int places)
   {
-   ;
+    for ( unsigned int i = position; i < position + places; i++ )
+    {
+      this->elements_used[i] = places;
+    }
   }
   unsigned int countMaxFreeConsecutiveElements ()
   {
@@ -90,7 +93,7 @@ public:
   }
   unsigned int nextOccupiedPositionIncludingFrom (unsigned int position)
   {
-    for ( int i = position; i < numberOfElements; i++ )
+    for ( unsigned int i = position; i < numberOfElements; i++ )
     {
       if ( this->elements_used[i] != 0 )
       {
