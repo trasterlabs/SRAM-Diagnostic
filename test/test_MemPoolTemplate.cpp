@@ -278,3 +278,22 @@ TEST_F(MemPoolTestingFixture, MarcarDisponibles_CasoMarginal02)
     EXPECT_EQ( pool_elements_used[i], objective[i] );
   }
 }
+
+
+TEST_F(MemPoolTestingFixture, ComprobarPosicion)
+{
+  //Arrange
+  //Act
+  //Assert
+  EXPECT_TRUE( the_pool.isPositionInsideMemoryPool( 2 ) );
+  EXPECT_FALSE( the_pool.isPositionInsideMemoryPool( 11 ) );
+  
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_TRUE( the_pool.isPositionInsideMemoryPool( i ) );
+  }
+  for ( int i = NELMS; i < 50000; i++ )
+  {
+    EXPECT_FALSE( the_pool.isPositionInsideMemoryPool( i ) );
+  }
+}
