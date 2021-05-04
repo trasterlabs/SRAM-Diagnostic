@@ -117,7 +117,17 @@ public:
   }
   unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer)
   {
-    ;
+    unsigned int output = numberOfElements;
+    unsigned int available = 0;
+    unsigned int occupied = 0;
+    unsigned int size = 0;
+    while ( ( this->isPositionInsideMemoryPool( available ) ) && ( size < size_of_the_desired_buffer ) )
+    {
+      available = this->nextAvailablePositionIncludingFrom( occupied );
+      occupied = this->nextOccupiedPositionIncludingFrom( available + 1 );
+      size = occupied - available;
+    }
+    return output;
   }
   void showTheElementsUsed ();
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
