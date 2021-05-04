@@ -338,3 +338,49 @@ TEST_F(MemPoolTestingFixture, BufferDisponible03)
     EXPECT_EQ( place_available, objective );
   }
 }
+
+TEST_F(MemPoolTestingFixture, New_Test01)
+{
+  //Arrange
+  pool_elements_used[0] = 1;
+  pool_elements_used[1] = 1;
+  //Act
+  int * object_created = the_pool.new_( 3 );
+  int * objective = &( pool_elements[2] );
+  unsigned int objective_positions[] = { 1, 1, 3, 3, 3, 0, 0, 0, 0, 0 };
+  //Assert
+  EXPECT_EQ( object_created, objective );
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
+  }
+}
+
+TEST_F(MemPoolTestingFixture, New_Test02)
+{
+  //Arrange
+  //Act
+  int * object_created = the_pool.new_( 3 );
+  int * objective = &( pool_elements[0] );
+  unsigned int objective_positions[] = { 3, 3, 3, 0, 0, 0, 0, 0, 0, 0 };
+  //Assert
+  EXPECT_EQ( object_created, objective );
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
+  }
+}
+TEST_F(MemPoolTestingFixture, New_Test02)
+{
+  //Arrange
+  //Act
+  int * object_created = the_pool.new_();
+  int * objective = &( pool_elements[0] );
+  unsigned int objective_positions[] = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  //Assert
+  EXPECT_EQ( object_created, objective );
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
+  }
+}
