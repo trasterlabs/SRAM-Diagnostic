@@ -297,3 +297,31 @@ TEST_F(MemPoolTestingFixture, ComprobarPosicion)
     EXPECT_FALSE( the_pool.isPositionInsideMemoryPool( i ) );
   }
 }
+
+TEST_F(MemPoolTestingFixture, BufferDisponible01)
+{
+  //Arrange
+  pool_elements_used[0] = 1;
+  pool_elements_used[1] = 1;
+  pool_elements_used[4] = 1;
+  pool_elements_used[5] = 1;
+  //Act
+  unsigned int place_available = the_pool.firstAvailableBuffer( 3 );
+  unsigned int objective = 6;
+  //Assert
+  EXPECT_EQ( place_available, objective );
+}
+
+TEST_F(MemPoolTestingFixture, BufferDisponible02)
+{
+  //Arrange
+  pool_elements_used[0] = 1;
+  pool_elements_used[1] = 1;
+  pool_elements_used[4] = 1;
+  pool_elements_used[5] = 1;
+  //Act
+  unsigned int place_available = the_pool.firstAvailableBuffer( 2 );
+  unsigned int objective = 2;
+  //Assert
+  EXPECT_EQ( place_available, objective );
+}
