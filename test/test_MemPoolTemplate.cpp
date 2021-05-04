@@ -325,3 +325,16 @@ TEST_F(MemPoolTestingFixture, BufferDisponible02)
   //Assert
   EXPECT_EQ( place_available, objective );
 }
+
+TEST_F(MemPoolTestingFixture, BufferDisponible03)
+{
+  //Arrange
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    //Act
+    unsigned int place_available = the_pool.firstAvailableBuffer( i );
+    unsigned int objective = 0;
+    //Assert
+    EXPECT_EQ( place_available, objective );
+  }
+}
