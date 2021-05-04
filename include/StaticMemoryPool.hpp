@@ -115,7 +115,10 @@ public:
   {
     return ( position < numberOfElements );
   }
-  unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer);
+  unsigned int firstAvailableBuffer (unsigned int size_of_the_desired_buffer)
+  {
+    ;
+  }
   void showTheElementsUsed ();
   #ifdef GOOGLETEST_INCLUDE_GTEST_GTEST_H_
   theType * ReceiveThePool ()
