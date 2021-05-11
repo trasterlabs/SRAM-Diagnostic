@@ -441,3 +441,46 @@ TEST_F(MemPoolTestingFixture, BuscarElementoEnElPool_01)
   EXPECT_EQ( 7, the_pool.find_the_position_in_the_pool( object_created_3 ) );
   EXPECT_EQ( 8, the_pool.find_the_position_in_the_pool( object_created_4 ) );
 }
+
+TEST_F(MemPoolTestingFixture, Delete_and_new_burst_operations_01)
+{
+  //Arrange
+  unsigned int objective_positions_2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  //Act
+  int * object_created = the_pool.new_( 3 );
+  int * object_created_2 = the_pool.new_( 4 );
+  int * object_created_3 = the_pool.new_( 1 );
+  int * object_created_4 = the_pool.new_( 1 );
+  the_pool.delete_( object_created );
+  the_pool.delete_( object_created_2 );
+  the_pool.delete_( object_created_3 );
+  the_pool.delete_( object_created_4 );
+  object_created = the_pool.new_( 1 );
+  object_created_2 = the_pool.new_( 1 );
+  object_created_3 = the_pool.new_( 1 );
+  object_created_4 = the_pool.new_( 1 );
+  the_pool.delete_( object_created );
+  the_pool.delete_( object_created_2 );
+  the_pool.delete_( object_created_3 );
+  the_pool.delete_( object_created_4 );
+  
+  //Assert
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
+  }
+}
+
+TEST_F(MemPoolTestingFixture, Delete_a_null_element_01)
+{
+  //Arrange
+  unsigned int objective_positions_2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  //Act
+  the_pool.delete_( NULL );
+  
+  //Assert
+  for ( int i = 0; i < NELMS; i++ )
+  {
+    EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
+  }
+}
