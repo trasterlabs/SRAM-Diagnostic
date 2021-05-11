@@ -67,6 +67,15 @@ public:
 
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1)
   {
+    unsigned int the_position = find_the_position_in_the_pool( array_to_be_deleted );
+    if ( is_an_array == true )
+    {
+      freeing_the( &array_to_be_deleted, the_position, this->elements_used[i] );
+    }
+    else
+    {
+      freeing_the( &array_to_be_deleted, the_position, how_many_elements );
+    }
   }
 
   void freeing_the (theType ** array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements)
