@@ -425,3 +425,18 @@ TEST_F(MemPoolTestingFixture, freeing_the_02)
     EXPECT_EQ( pool_elements_used[i], objective_positions_2[i] );
   }
 }
+
+TEST_F(MemPoolTestingFixture, BuscarElementoEnElPool_01)
+{
+  //Arrange
+  //Act
+  int * object_created = the_pool.new_(3);
+  int * object_created_2 = the_pool.new_(4);
+  int * object_created_3 = the_pool.new_(1);
+  int * object_created_4 = the_pool.new_(1);
+  //Assert
+  EXPECT_EQ( 0, this->find_the_position_in_the_pool( object_created ) );
+  EXPECT_EQ( 3, this->find_the_position_in_the_pool( object_created_2 ) );
+  EXPECT_EQ( 7, this->find_the_position_in_the_pool( object_created_3 ) );
+  EXPECT_EQ( 8, this->find_the_position_in_the_pool( object_created_4 ) );
+}
