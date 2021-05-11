@@ -89,9 +89,12 @@ public:
       this->elements_used[i] = 0;
     }
     
-    if ( array_to_be_deleted[0] != NULL )
+    if ( array_to_be_deleted != NULL )
     {
-      array_to_be_deleted[0] = NULL;
+      if ( array_to_be_deleted[0] != NULL )
+      {
+        array_to_be_deleted[0] = NULL;
+      }
     }
   }
 
