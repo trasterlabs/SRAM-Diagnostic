@@ -415,9 +415,10 @@ TEST_F(MemPoolTestingFixture, freeing_the_02)
   {
     EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
   }
-  //Act
-  the_pool.freeing_the( &object_created_2, 2, 2 );
+  //Arrange
   unsigned int objective_positions_2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  //Act
+  the_pool.freeing_the( &object_created_2, 3, 2 );
   //Assert
   EXPECT_EQ( NULL, object_created_2 );
   for ( int i = 0; i < NELMS; i++ )
