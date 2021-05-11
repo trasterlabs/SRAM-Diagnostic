@@ -70,7 +70,7 @@ public:
     unsigned int the_position = find_the_position_in_the_pool( array_to_be_deleted );
     if ( is_an_array == true )
     {
-      freeing_the( &array_to_be_deleted, the_position, this->elements_used[i] );
+      freeing_the( &array_to_be_deleted, the_position, this->elements_used[the_position] );
     }
     else
     {
