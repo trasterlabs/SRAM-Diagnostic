@@ -67,6 +67,11 @@ public:
 
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1)
   {
+    if ( array_to_be_deleted == NULL )
+    {
+      return;
+    }
+     
     unsigned int the_position = find_the_position_in_the_pool( array_to_be_deleted );
     if ( is_an_array == true )
     {
