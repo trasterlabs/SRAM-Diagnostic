@@ -69,7 +69,7 @@ public:
   {
   }
 
-  void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements)
+  void freeing_the (theType ** array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements)
   {
     unsigned int the_computed_last_element = the_position_to_delete + how_many_elements;
     unsigned int the_last_element = ( the_computed_last_element > numberOfElements )?
@@ -80,7 +80,7 @@ public:
       this->elements_used[i] = 0;
     }
     
-    array_to_be_deleted = NULL;
+    array_to_be_deleted[0] = NULL;
   }
 
   unsigned int find_the_position_in_the_pool (theType * the_array)
