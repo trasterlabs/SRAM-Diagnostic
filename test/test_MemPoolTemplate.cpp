@@ -474,7 +474,7 @@ TEST_F(MemPoolTestingFixture, Delete_and_new_burst_operations_01)
 TEST_F(MemPoolTestingFixture, Delete_a_null_element_01)
 {
   //Arrange
-  unsigned int objective_positions_2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+  unsigned int objective_positions[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
   //Act
   the_pool.delete_( NULL );
   
