@@ -89,7 +89,10 @@ public:
       this->elements_used[i] = 0;
     }
     
-    array_to_be_deleted[0] = NULL;
+    if ( array_to_be_deleted[0] != NULL )
+    {
+      array_to_be_deleted[0] = NULL;
+    }
   }
 
   unsigned int find_the_position_in_the_pool (theType * the_array)
