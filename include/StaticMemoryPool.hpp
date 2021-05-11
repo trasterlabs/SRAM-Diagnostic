@@ -85,6 +85,13 @@ public:
 
   unsigned int find_the_position_in_the_pool (theType * the_array)
   {
+    for ( unsigned int i = 0; i < numberOfElements; i++ )
+    {
+      if ( the_array == &( this->the_pool[i] ) )
+      {
+        return i;
+      }
+    }
   }
 
   void markTheElementsToBeAllocated (unsigned int position, unsigned int places)
