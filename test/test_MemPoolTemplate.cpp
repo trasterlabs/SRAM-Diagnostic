@@ -435,8 +435,8 @@ TEST_F(MemPoolTestingFixture, BuscarElementoEnElPool_01)
   int * object_created_3 = the_pool.new_(1);
   int * object_created_4 = the_pool.new_(1);
   //Assert
-  EXPECT_EQ( 0, this->find_the_position_in_the_pool( object_created ) );
-  EXPECT_EQ( 3, this->find_the_position_in_the_pool( object_created_2 ) );
-  EXPECT_EQ( 7, this->find_the_position_in_the_pool( object_created_3 ) );
-  EXPECT_EQ( 8, this->find_the_position_in_the_pool( object_created_4 ) );
+  EXPECT_EQ( 0, the_pool.find_the_position_in_the_pool( object_created ) );
+  EXPECT_EQ( 3, the_pool.find_the_position_in_the_pool( object_created_2 ) );
+  EXPECT_EQ( 7, the_pool.find_the_position_in_the_pool( object_created_3 ) );
+  EXPECT_EQ( 8, the_pool.find_the_position_in_the_pool( object_created_4 ) );
 }
