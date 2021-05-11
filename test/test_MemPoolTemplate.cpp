@@ -401,7 +401,7 @@ TEST_F(MemPoolTestingFixture, freeing_the_01)
   }
 }
 
-TEST_F(MemPoolTestingFixture, freeing_the_01)
+TEST_F(MemPoolTestingFixture, freeing_the_02)
 {
   //Arrange
   int * object_created = the_pool.new_(3);
