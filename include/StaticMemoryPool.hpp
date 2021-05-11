@@ -65,9 +65,27 @@ public:
     }
   }
 
-  void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1);
-  void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements);
-  unsigned int find_the_position_in_the_pool (theType * the_array);
+  void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1)
+  {
+  }
+
+  void freeing_the (theType * array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements)
+  {
+    unsigned int the_computed_last_element = the_position_to_delete + how_many_elements;
+    unsigned int the_last_element = ( the_computed_last_element > numberOfElements )?
+                                        numberOfElements :
+                                        the_computed_last_element;
+    for ( unsigned int i = the_position_to_delete; i < the_last_element; i++ )
+    {
+      this->elements_used[i] = 0;
+    }
+    
+    array_to_be_deleted = NULL;
+  }
+
+  unsigned int find_the_position_in_the_pool (theType * the_array)
+  {
+  }
 
   void markTheElementsToBeAllocated (unsigned int position, unsigned int places)
   {
