@@ -392,7 +392,7 @@ TEST_F(MemPoolTestingFixture, freeing_the_01)
   int * object_created_2 = the_pool.new_(2);
   unsigned int objective_positions[] = { 0, 0, 0, 2, 2, 0, 0, 0, 0, 0 };
   //Act
-  the_pool.freeing_the( object_created, 0, 3 );
+  the_pool.freeing_the( &object_created, 0, 3 );
   //Assert
   EXPECT_EQ( NULL, object_created );
   for ( int i = 0; i < NELMS; i++ )
@@ -408,7 +408,7 @@ TEST_F(MemPoolTestingFixture, freeing_the_02)
   int * object_created_2 = the_pool.new_(2);
   unsigned int objective_positions[] = { 0, 0, 0, 2, 2, 0, 0, 0, 0, 0 };
   //Act
-  the_pool.freeing_the( object_created, 0, 3 );
+  the_pool.freeing_the( &object_created, 0, 3 );
   //Assert
   EXPECT_EQ( NULL, object_created );
   for ( int i = 0; i < NELMS; i++ )
@@ -416,7 +416,7 @@ TEST_F(MemPoolTestingFixture, freeing_the_02)
     EXPECT_EQ( pool_elements_used[i], objective_positions[i] );
   }
   //Act
-  the_pool.freeing_the( object_created_2, 2, 2 );
+  the_pool.freeing_the( &object_created_2, 2, 2 );
   unsigned int objective_positions_2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
   //Assert
   EXPECT_EQ( NULL, object_created_2 );
