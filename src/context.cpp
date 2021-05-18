@@ -30,7 +30,7 @@ void Context::Request2 ( void )
   this->state_->Handle2();
 }
 
-const char * ShowScreen()
+const char * Context::ShowScreen()
 {
     return this->state_->Show();
 }
