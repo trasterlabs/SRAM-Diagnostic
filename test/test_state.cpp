@@ -4,6 +4,7 @@
 
 #include "context.h"
 #include "ConcreteStateA.h"
+#include "ConcreteStateB.h"
 
 #if 0
 TEST(Methods_random, Basic_functionality)
