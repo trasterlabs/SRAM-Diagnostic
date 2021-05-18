@@ -25,5 +25,16 @@ TEST(Screen_functionality, Screen01_test)
   //Act
   const char * prueba = context->ShowScreen();
   //Assert
-  EXPECT_STREQ( prueba, "=========\n Todo_OK \n=========\n" );
+  EXPECT_STREQ( prueba, "=========\n Todo OK \n=========\n" );
 }
+
+TEST(Screen_functionality, Screen02_test)
+{
+  //Arrange
+  Context *context = new Context(new ConcreteStateB);
+  //Act
+  const char * prueba = context->ShowScreen();
+  //Assert
+  EXPECT_STREQ( prueba, "=========\n NO OK   \n=========\n" );
+}
+
