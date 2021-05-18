@@ -28,6 +28,7 @@ class Context {
    */
   void Request1();
   void Request2();
+  void ShowScreen();
 };
 
 #endif // CONTEXT_H
