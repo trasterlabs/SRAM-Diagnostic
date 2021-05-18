@@ -32,6 +32,7 @@ class State
 
   virtual void Handle1() = 0;
   virtual void Handle2() = 0;
+  virtual const char * Show() = 0;
 };
 
 #endif // STATE_H
