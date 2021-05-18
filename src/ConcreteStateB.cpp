@@ -14,3 +14,7 @@ void ConcreteStateB::Handle2()
   std::cout << "ConcreteStateB: trying to change the state of the context.\n";
   this->context_->TransitionTo(new ConcreteStateA);
 }
+const char * ConcreteStateB::Show()
+{
+  return "esto no debería verse";
+}
