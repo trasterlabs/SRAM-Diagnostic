@@ -4,6 +4,30 @@
 #include <iostream>
 
 
+void* ConcreteStateB::operator new(size_t sz)
+{
+  concreteStateBPool & memorypool = concreteStateBPool::GetInstance();
+  return memorypool.new_();
+}
+
+void* ConcreteStateB::operator new[](size_t sz)
+{
+  concreteStateBPool & memorypool = concreteStateBPool::GetInstance();
+  return memorypool.new_( sz / sizeof ( ConcreteStateB ) );
+}
+
+void ConcreteStateB::operator delete(void* ptr)
+{
+  concreteStateBPool & memorypool = concreteStateBPool::GetInstance();
+  return memorypool.delete_( static_cast <ConcreteStateB *> (ptr) );
+}
+
+void ConcreteStateB::operator delete[](void* ptr)
+{
+  concreteStateBPool & memorypool = concreteStateBPool::GetInstance();
+  return memorypool.delete_( static_cast <ConcreteStateB *> (ptr) );
+}
+
 void ConcreteStateB::Handle1()
 {
   std::cout << "ConcreteStateB: request1.\n";
