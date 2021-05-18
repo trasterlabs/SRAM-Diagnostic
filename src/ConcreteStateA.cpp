@@ -14,3 +14,8 @@ void ConcreteStateA::Handle2()
 {
   std::cout << "ConcreteStateA: request2.\n";
 }
+
+const char * ConcreteStateA::Show()
+{
+  return "Esto no es lo que esperaba";
+}
