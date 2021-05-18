@@ -23,7 +23,7 @@ TEST(Screen_functionality, Screen01_test)
   //Arrange
   Context *context = new Context(new ConcreteStateA);
   //Act
-  const string * prueba = context->ShowScreen();
+  const char * prueba = context->ShowScreen();
   //Assert
   EXPECT_STREQ( prueba, "=========\n Todo_OK \n=========\n" );
 }
