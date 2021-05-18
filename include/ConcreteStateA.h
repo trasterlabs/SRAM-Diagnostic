@@ -11,6 +11,11 @@
 class ConcreteStateA : public State
 {
  public:
+  void* operator new(size_t sz);
+  void* operator new[](size_t sz);
+  void operator delete(void* ptr);
+  void operator delete[](void* ptr);
+
   void Handle1() override;
 
   void Handle2() override;
