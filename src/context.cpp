@@ -29,3 +29,8 @@ void Context::Request2 ( void )
 {
   this->state_->Handle2();
 }
+
+const char * ShowScreen()
+{
+    this->state_->Show();
+}
