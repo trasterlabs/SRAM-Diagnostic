@@ -14,6 +14,8 @@ class ConcreteStateA : public State
   void Handle1() override;
 
   void Handle2() override;
+  
+  const char * Show() override;
 };
 
 #endif // CONCRETESTATEA_H
