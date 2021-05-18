@@ -28,7 +28,7 @@ class Context {
    */
   void Request1();
   void Request2();
-  void ShowScreen();
+  const char * ShowScreen();
 };
 
 #endif // CONTEXT_H
