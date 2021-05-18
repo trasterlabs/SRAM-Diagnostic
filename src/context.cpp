@@ -32,5 +32,5 @@ void Context::Request2 ( void )
 
 const char * ShowScreen()
 {
-    this->state_->Show();
+    return this->state_->Show();
 }
