@@ -16,5 +16,5 @@ void ConcreteStateB::Handle2()
 }
 const char * ConcreteStateB::Show()
 {
-  return "esto no debería verse";
+  return "=========\n NO OK   \n=========\n";
 }
