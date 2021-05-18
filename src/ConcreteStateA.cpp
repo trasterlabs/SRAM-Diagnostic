@@ -17,5 +17,5 @@ void ConcreteStateA::Handle2()
 
 const char * ConcreteStateA::Show()
 {
-  return "Esto no es lo que esperaba";
+  return "=========\n Todo OK \n=========\n";
 }
