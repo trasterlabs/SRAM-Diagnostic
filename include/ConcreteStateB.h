@@ -2,6 +2,9 @@
 #define CONCRETESTATEB_H
 
 #include "state.h"
+#include "StaticMemoryPool.hpp"
+
+typedef MemoryPool<ConcreteStateB,3> concreteStateBPool;
 
 /**
  * Concrete States implement various behaviors, associated with a state of the
