@@ -3,7 +3,7 @@
 #include "context.h"
 #include <iostream>
 
-#include "StaticMemoryPool.h"
+#include "StaticMemoryPool.hpp"
 
 typedef MemoryPool<ConcreteStateA,3> concreteStateAPool;
 
