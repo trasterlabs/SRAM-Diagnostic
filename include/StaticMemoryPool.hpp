@@ -11,6 +11,7 @@
   ******************************************************************************
   */
 
+#include <stdint.h>
 
 template <typename theType, unsigned int numberOfElements>
 class MemoryPool
