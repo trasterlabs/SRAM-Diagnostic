@@ -68,7 +68,7 @@ public:
 
   void delete_ (theType * array_to_be_deleted, bool is_an_array = true, unsigned int how_many_elements = 1)
   {
-    if ( array_to_be_deleted == NULL )
+    if ( array_to_be_deleted == nullptr )
     {
       return;
     }
@@ -95,11 +95,11 @@ public:
       this->elements_used[i] = 0;
     }
     
-    if ( array_to_be_deleted != NULL )
+    if ( array_to_be_deleted != nullptr )
     {
-      if ( array_to_be_deleted[0] != NULL )
+      if ( array_to_be_deleted[0] != nullptr )
       {
-        array_to_be_deleted[0] = NULL;
+        array_to_be_deleted[0] = nullptr;
       }
     }
   }
