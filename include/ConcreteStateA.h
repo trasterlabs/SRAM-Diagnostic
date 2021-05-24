@@ -3,6 +3,8 @@
 
 #include "state.h"
 
+#include <stddef.h>
+
 /**
  * Concrete States implement various behaviors, associated with a state of the
  * Context.
