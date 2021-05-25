@@ -12,8 +12,8 @@
   ******************************************************************************
   */
 
-#ifndef CONTEXT_H
-#define CONTEXT_H
+#ifndef KEY_H
+#define KEY_H
 
 #include "state.h"
 
@@ -38,4 +38,4 @@ class Key
   void Closed();
 };
 
-#endif // CONTEXT_H
+#endif // KEY_H
