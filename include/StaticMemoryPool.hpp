@@ -87,7 +87,7 @@ public:
   void freeing_the (theType ** array_to_be_deleted, unsigned int the_position_to_delete, unsigned int how_many_elements)
   {
     unsigned int the_computed_last_element = the_position_to_delete + how_many_elements;
-    unsigned int the_last_element = ( the_computed_last_element > numberOfElements )?
+    unsigned int the_last_element = ( the_computed_last_element >= numberOfElements )?
                                         numberOfElements :
                                         the_computed_last_element;
     for ( unsigned int i = the_position_to_delete; i < the_last_element; i++ )
