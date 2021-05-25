@@ -27,8 +27,6 @@ TEST(Screen_functionality, Screen01_test)
   const char * prueba = context->ShowScreen();
   //Assert
   EXPECT_STREQ( prueba, "=========\n Todo OK \n=========\n" );
-  //teardown
-  delete context;
 }
 
 TEST(Screen_functionality, Screen02_test)
@@ -39,7 +37,5 @@ TEST(Screen_functionality, Screen02_test)
   const char * prueba = context->ShowScreen();
   //Assert
   EXPECT_STREQ( prueba, "=========\n NO OK   \n=========\n" );
-  //teardown
-  delete context;
 }
 
