@@ -1,5 +1,4 @@
-#include "key.h"
-#include <iostream>
+#include "Key.h"
 
 Key::Key (KeyState  *state) : state_(nullptr)
 {
