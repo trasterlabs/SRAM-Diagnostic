@@ -15,7 +15,7 @@
 #ifndef KEY_H
 #define KEY_H
 
-#include "keystate.h"
+#include "KeyState.h"
 
 
 /**
