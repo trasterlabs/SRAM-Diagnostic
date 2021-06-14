@@ -79,6 +79,10 @@ void KeyStateHOLD::operator delete[](void* ptr)
   * @}
   */
 
+
+/**
+  * @brief Cuando se recibe la llamada de "apertura" de la tecla, se realiza el cambio de estado al estado "released"
+  */
 void KeyStateHOLD::Open()
 {
 #ifdef PC_OUTPUT
@@ -89,6 +93,9 @@ void KeyStateHOLD::Open()
   this->Key_->TransitionTo(new KeyStateRELEASED);
 }
 
+/**
+  * @brief Cuando se recibe la llamada de "cierre" de la tecla (presionada), se realiza el cambio de estado al estado "HOLD"
+  */
 void KeyStateHOLD::Closed()
 {
 #ifdef PC_OUTPUT
