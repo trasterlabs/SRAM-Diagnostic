@@ -1,3 +1,17 @@
+/**
+  ******************************************************************************
+  * @file    stm32f4xx_hal.c
+  * @author  Trasterlabs
+  * @brief   The state when the key is being pressed between readings
+  *
+  ******************************************************************************
+  * @attention
+  *
+  * License Creative Commons CC BY-NC-SA 3.0
+  *
+  ******************************************************************************
+  */
+
 #include "StaticMemoryPool.hpp"
 #include "KeyStateHOLD.h"
 #include "KeyStateRELEASED.h"
