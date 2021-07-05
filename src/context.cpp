@@ -3,29 +3,29 @@
 #include <iostream>
 #include <typeinfo>
 
-typedef MemoryPool<Context,3> ContextPool;
+typedef MemoryPool<Context,3> contextPool;
 
 void* Context::operator new(size_t sz)
 {
-  ContextPool & memorypool = ContextPool::GetInstance();
+  contextPool & memorypool = contextPool::GetInstance();
   return memorypool.new_();
 }
 
 void* Context::operator new[](size_t sz)
 {
-  ContextPool & memorypool = ContextPool::GetInstance();
+  contextPool & memorypool = contextPool::GetInstance();
   return memorypool.new_( sz / sizeof ( Context ) );
 }
 
 void Context::operator delete(void* ptr)
 {
-  ContextPool & memorypool = ContextPool::GetInstance();
+  contextPool & memorypool = contextPool::GetInstance();
   return memorypool.delete_( static_cast <Context *> (ptr) );
 }
 
 void Context::operator delete[](void* ptr)
 {
-  ContextPool & memorypool = ContextPool::GetInstance();
+  contextPool & memorypool = contextPool::GetInstance();
   return memorypool.delete_( static_cast <Context *> (ptr) );
 }
 
