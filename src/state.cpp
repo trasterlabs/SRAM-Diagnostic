@@ -1,3 +1,4 @@
+#include "StaticMemoryPool.hpp"
 #include "state.h"
 
 typedef MemoryPool<State,3> StatePool;
