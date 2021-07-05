@@ -26,11 +26,6 @@ class State
   Context *context_;
 
  public:
-  void* operator new(size_t sz);
-  void* operator new[](size_t sz);
-  void operator delete(void* ptr);
-  void operator delete[](void* ptr);
-
   virtual ~State() {}
 
   void set_context(Context *context);

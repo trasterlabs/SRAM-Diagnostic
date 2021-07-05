@@ -3,6 +3,8 @@
 
 #include "state.h"
 
+#include <stddef.h>
+
 
 /**
  * The Context defines the interface of interest to clients. It also maintains a
@@ -22,7 +24,7 @@ class Context {
   void operator delete(void* ptr);
   void operator delete[](void* ptr);
 
-  Context(State *state);
+  Context(State *state = nullptr);
   ~Context();
   /**
    * The Context allows changing the State object at runtime.
