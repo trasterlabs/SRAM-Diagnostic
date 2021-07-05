@@ -35,21 +35,24 @@ Context::Context (State *state) : state_(state)
 }
 Context::~Context ( void )
 {
-  delete state_;
+  if ( this->state_ != nullptr )
+  {
+    delete state_;
+  }
 }
 
 void Context::TransitionTo (State *state)
 {
-  if (state != nullptr)
+  if ( state != nullptr )
   {
     return;
   }
-  if (this->state_ != nullptr)
+  if ( this->state_ != nullptr )
   {
     std::cout << "Context: Transition to " << typeid(state[0]).name() << ".\n";
     delete this->state_;
   }
-  if (state != nullptr)
+  if ( state != nullptr )
   {
     this->state_ = state;
     this->state_->set_context(this);
