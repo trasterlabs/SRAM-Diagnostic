@@ -40,13 +40,20 @@ Context::~Context ( void )
 
 void Context::TransitionTo (State *state)
 {
+  if (state != nullptr)
+  {
+    return;
+  }
   if (this->state_ != nullptr)
   {
     std::cout << "Context: Transition to " << typeid(state[0]).name() << ".\n";
     delete this->state_;
   }
-  this->state_ = state;
-  this->state_->set_context(this);
+  if (state != nullptr)
+  {
+    this->state_ = state;
+    this->state_->set_context(this);
+  }
 }
 void Context::Request1 ( void )
 {
