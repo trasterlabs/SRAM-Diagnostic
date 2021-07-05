@@ -40,9 +40,9 @@ Context::~Context ( void )
 
 void Context::TransitionTo (State *state)
 {
-  std::cout << "Context: Transition to " << typeid(*state).name() << ".\n";
   if (this->state_ != nullptr)
   {
+    std::cout << "Context: Transition to " << typeid(state[0]).name() << ".\n";
     delete this->state_;
   }
   this->state_ = state;
