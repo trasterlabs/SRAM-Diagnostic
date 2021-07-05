@@ -17,6 +17,11 @@ class Context {
   State *state_;
 
  public:
+  void* operator new(size_t sz);
+  void* operator new[](size_t sz);
+  void operator delete(void* ptr);
+  void operator delete[](void* ptr);
+
   Context(State *state);
   ~Context();
   /**
