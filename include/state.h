@@ -9,8 +9,6 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <stddef.h>
-
 /**
  * The base State class declares methods that all Concrete State should
  * implement and also provides a backreference to the Context object, associated
@@ -28,11 +26,6 @@ class State
   Context *context_;
 
  public:
-  void* operator new(size_t sz);
-  void* operator new[](size_t sz);
-  void operator delete(void* ptr);
-  void operator delete[](void* ptr);
-
   virtual ~State() {}
 
   void set_context(Context *context);
