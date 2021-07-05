@@ -24,7 +24,7 @@ class Context {
   void operator delete(void* ptr);
   void operator delete[](void* ptr);
 
-  Context(State *state);
+  Context(State *state = nullptr);
   ~Context();
   /**
    * The Context allows changing the State object at runtime.
