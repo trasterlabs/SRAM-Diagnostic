@@ -29,7 +29,7 @@ void Context::operator delete[](void* ptr)
   return memorypool.delete_( static_cast <Context *> (ptr) );
 }
 
-Context::Context (State *state) : state_(nullptr)
+Context::Context (State *state) : state_(state)
 {
   this->TransitionTo(state);
 }
