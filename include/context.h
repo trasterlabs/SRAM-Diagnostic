@@ -3,6 +3,8 @@
 
 #include "state.h"
 
+#include <stddef.h>
+
 
 /**
  * The Context defines the interface of interest to clients. It also maintains a
