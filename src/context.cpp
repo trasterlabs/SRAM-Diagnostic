@@ -1,3 +1,4 @@
+#include "StaticMemoryPool.hpp"
 #include "context.h"
 #include <iostream>
 #include <typeinfo>
